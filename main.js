@@ -4,6 +4,18 @@ export async function getStaticProps() {
   return { props: { posts } };
 }
 
+const [currentPage, setCurrentPage] = useState(1);
+const [posts, setPosts] = useState([]);
+
+useEffect(() => {
+  async function fetchPosts() {
+    const res = await fetch(`/api/posts?page=${currentPage}`);
+    const data = await res.json();
+    setPosts((prevPosts) => [...prevPosts, ...data]);
+  }
+  fetchPosts();
+}, [currentPage]);
+
 
 (function() {
   "use strict";
