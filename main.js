@@ -1,10 +1,9 @@
-/**
-* Template Name: iPortfolio
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Updated: Jun 29 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+export async function getStaticProps() {
+  const res = await fetch('https://api.linkedin.com/v2/posts');
+  const posts = await res.json();
+  return { props: { posts } };
+}
+
 
 (function() {
   "use strict";
