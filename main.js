@@ -1,10 +1,3 @@
-export async function getStaticProps() {
-  const res = await fetch('https://api.linkedin.com/v2/posts');
-  const posts = await res.json();
-  return { props: { posts } };
-}
-
-
 (function() {
   "use strict";
 
